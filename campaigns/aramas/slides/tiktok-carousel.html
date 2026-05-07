@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Aramas Property — Fast Launch · TikTok Carousel</title>
+<link rel="stylesheet" href="../../../colors_and_type.css">
+<script src="../../../deck-stage.js"></script>
+<style>
+  body { background: #0a0a0a; }
+
+  /* Shared spacing helpers */
+  .gap-20  { height: 20px;  flex-shrink: 0; }
+  .gap-28  { height: 28px;  flex-shrink: 0; }
+  .gap-36  { height: 36px;  flex-shrink: 0; }
+  .gap-48  { height: 48px;  flex-shrink: 0; }
+  .gap-56  { height: 56px;  flex-shrink: 0; }
+  .gap-64  { height: 64px;  flex-shrink: 0; }
+  .gap-80  { height: 80px;  flex-shrink: 0; }
+
+  /* ── Slide 1: Hook ── */
+  #s1 .screenshot-card {
+    aspect-ratio: 16 / 10;
+    max-height: 540px;
+  }
+
+  /* ── Slide 5: Timeline ── */
+  #s5 .timeline { max-width: 840px; }
+
+  /* ── Slide 7: Statement / CTA ── */
+  #s7 .bg-hero {
+    position: absolute;
+    inset: 0;
+    background-image: url('../references/hero.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.10;
+    pointer-events: none;
+  }
+  #s7 .bg-fade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+      rgba(17,13,10,0.95) 0%,
+      rgba(17,13,10,0.70) 40%,
+      rgba(17,13,10,0.70) 60%,
+      rgba(17,13,10,0.95) 100%);
+    pointer-events: none;
+  }
+  #s7 .slide-content { position: relative; z-index: 1; }
+</style>
+</head>
+<body>
+
+<deck-stage width="1080" height="1920" data-format="tiktok" data-theme="dark">
+
+  <!-- ── SLIDE 1: HOOK ──────────────────────────────────────────────────────── -->
+  <section class="slide" id="s1">
+    <div class="topbar"></div>
+    <div class="logo-block">
+      <img src="../../../brand/logo-mark.png" alt="Fast Launch">
+      <span class="wordmark">Fast Launch</span>
+    </div>
+    <div class="slide-content">
+      <div class="gap-36"></div>
+      <h1 class="h1">This Website Went<br><span class="italic">Live</span> In 6 Days.</h1>
+      <div class="gap-28"></div>
+      <p class="subhead">No agency. No months of waiting.</p>
+      <div class="gap-48"></div>
+      <div class="screenshot-card">
+        <img src="../references/hero.png" alt="Aramas Property website">
+      </div>
+      <div class="gap-36"></div>
+      <div class="stat-row">
+        <div class="stat-pill">
+          <span class="stat-number">200+</span>
+          <span class="stat-label">Properties</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-number">6</span>
+          <span class="stat-label">Days live</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Custom build</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-url">fastlaunchmvp.com</div>
+  </section>
+
+  <!-- ── SLIDE 2: FEATURE — Off-plan listings ──────────────────────────────── -->
+  <section class="slide" id="s2">
+    <div class="topbar"></div>
+    <div class="logo-block">
+      <img src="../../../brand/logo-mark.png" alt="Fast Launch">
+      <span class="wordmark">Fast Launch</span>
+    </div>
+    <div class="slide-content">
+      <div class="eyebrow">The Work</div>
+      <div class="gap-28"></div>
+      <h1 class="h1">200+ Properties.<br><span class="italic">Listed</span> Day One.</h1>
+      <div class="gap-28"></div>
+      <p class="subhead">Off-plan UAE developments, fully searchable from launch.</p>
+      <div class="gap-48"></div>
+      <div class="screenshot-card" style="aspect-ratio:16/10;max-height:560px;overflow:hidden;">
+        <img src="../references/homepage.png" alt="Aramas off-plan listings"
+             style="object-position: 0 -280px;">
+      </div>
+    </div>
+    <div class="footer-url">fastlaunchmvp.com</div>
+  </section>
+
+  <!-- ── SLIDE 3: FEATURE — Properties grid ────────────────────────────────── -->
+  <section class="slide" id="s3">
+    <div class="topbar"></div>
+    <div class="logo-block">
+      <img src="../../../brand/logo-mark.png" alt="Fast Launch">
+      <span class="wordmark">Fast Launch</span>
+    </div>
+    <div class="slide-content">
+      <div class="eyebrow">The Build</div>
+      <div class="gap-28"></div>
+      <h1 class="h1">Every Listing.<br><span class="italic">Built</span> From Scratch.</h1>
+      <div class="gap-28"></div>
+      <p class="subhead">Floor plans, pricing, payment schedules — all custom.</p>
+      <div class="gap-48"></div>
+      <div class="screenshot-card" style="aspect-ratio:16/10;max-height:560px;overflow:hidden;">
+        <img src="../references/homepage.png" alt="Aramas property grid"
+             style="object-position: 0 -680px;">
+      </div>
+    </div>
+    <div class="footer-url">fastlaunchmvp.com</div>
+  </section>
+
+  <!-- ── SLIDE 4: FEATURE — Property hero ─────────────────────────────────── -->
+  <section class="slide" id="s4">
+    <div class="topbar"></div>
+    <div class="logo-block">
+      <img src="../../../brand/logo-mark.png" alt="Fast Launch">
+      <span class="wordmark">Fast Launch</span>
+    </div>
+    <div class="slide-content">
+      <div class="eyebrow">Week One</div>
+      <div class="gap-28"></div>
+      <h1 class="h1">3 International<br>Buyers. <span class="italic">Week One.</span></h1>
+      <div class="gap-28"></div>
+      <p class="subhead">Luxury off-plan property. Selling before the launch month was out.</p>
+      <div class="gap-48"></div>
+      <div class="screenshot-card" style="aspect-ratio:16/10;max-height:560px;overflow:hidden;">
+        <img src="../references/property-page.png" alt="Aramas property detail"
+             style="object-position: 0 0;">
+      </div>
+    </div>
+    <div class="footer-url">fastlaunchmvp.com</div>
+  </section>
+
+  <!-- ── SLIDE 5: TIMELINE ──────────────────────────────────────────────────── -->
+  <section class="slide" id="s5">
+    <div class="topbar"></div>
+    <div class="logo-block">
+      <img src="../../../brand/logo-mark.png" alt="Fast Launch">
+      <span class="wordmark">Fast Launch</span>
+    </div>
+    <div class="slide-content">
+      <h1 class="h1">Brief to <span class="italic">Live Site.</span></h1>
+      <div class="gap-20"></div>
+      <p class="subhead">How 6 days actually looks.</p>
+      <div class="gap-56"></div>
+      <div class="timeline">
+        <div class="timeline-row">
+          <span class="day-chip">Day 1</span>
+          <span class="timeline-label">Brief &amp; scope signed off</span>
+        </div>
+        <div class="timeline-row">
+          <span class="day-chip">Day 2</span>
+          <span class="timeline-label">Design &amp; wireframes</span>
+        </div>
+        <div class="timeline-row">
+          <span class="day-chip">Day 4</span>
+          <span class="timeline-label">Frontend live</span>
+        </div>
+        <div class="timeline-row">
+          <span class="day-chip">Day 6</span>
+          <span class="timeline-label">Production deployed</span>
+        </div>
+      </div>
+      <div class="gap-64"></div>
+      <p class="display" style="font-size:80px;"><span class="italic">6 days.</span></p>
+    </div>
+    <div class="footer-url">fastlaunchmvp.com</div>
+  </section>
+
+  <!-- ── SLIDE 6: FEATURE — Amenities/detail ──────────────────────────────── -->
+  <section class="slide" id="s6">
+    <div class="topbar"></div>
+    <div class="logo-block">
+      <img src="../../../brand/logo-mark.png" alt="Fast Launch">
+      <span class="wordmark">Fast Launch</span>
+    </div>
+    <div class="slide-content">
+      <div class="eyebrow">The Detail</div>
+      <div class="gap-28"></div>
+      <h1 class="h1">Every Detail.<br><span class="italic">Done</span> Properly.</h1>
+      <div class="gap-28"></div>
+      <p class="subhead">Maps, payment plans, amenities, enquiry forms — all built in.</p>
+      <div class="gap-48"></div>
+      <div class="screenshot-card" style="aspect-ratio:16/10;max-height:560px;overflow:hidden;">
+        <img src="../references/property-page.png" alt="Aramas property amenities"
+             style="object-position: 0 -770px;">
+      </div>
+    </div>
+    <div class="footer-url">fastlaunchmvp.com</div>
+  </section>
+
+  <!-- ── SLIDE 7: STATEMENT / CTA ──────────────────────────────────────────── -->
+  <section class="slide" id="s7">
+    <div class="topbar"></div>
+    <div class="bg-hero"></div>
+    <div class="bg-fade"></div>
+    <div class="logo-block" style="position:relative;z-index:1;">
+      <img src="../../../brand/logo-mark.png" alt="Fast Launch">
+      <span class="wordmark">Fast Launch</span>
+    </div>
+    <div class="slide-content">
+      <div class="eyebrow">Your Turn</div>
+      <div class="gap-36"></div>
+      <div class="orange-rule"></div>
+      <div class="gap-48"></div>
+      <h1 class="display">Your business<br>could look<br><span class="italic">like this.</span></h1>
+      <div class="gap-48"></div>
+      <p class="subhead">We build fast. You own everything.</p>
+      <div class="gap-64"></div>
+      <a class="cta-btn" href="https://fastlaunchmvp.com">fastlaunchmvp.com →</a>
+      <div class="gap-36"></div>
+      <span class="eyebrow" style="color:var(--fg-3);">@FASTLAUNCHMVP</span>
+    </div>
+    <div class="footer-url">fastlaunchmvp.com</div>
+  </section>
+
+</deck-stage>
+
+</body>
+</html>

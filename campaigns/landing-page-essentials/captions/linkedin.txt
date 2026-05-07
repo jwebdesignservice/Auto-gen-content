@@ -1,0 +1,23 @@
+Most landing pages fail for the same five reasons.
+
+I've audited a lot of websites this year, and the same handful of mistakes show up again and again. Fixing them, individually, can double conversion.
+
+Here are the 5 things every landing page actually needs:
+
+1. A clear value prop above the fold. One sentence, specific to your buyer. If they need to think "wait, what does this do?", you've already lost them.
+
+2. One CTA, repeated. Not "Sign up" plus "Book a demo" plus "Contact sales." Pick one action. Repeat it after every section.
+
+3. Real social proof. Logos, named testimonials with photos, specific numbers. "Trusted by thousands" is wallpaper. "200 founders shipped this month" sells.
+
+4. Friction-free contact. Email visible. Calendar embedded. Form has 4 fields max. If they have to dig to talk to you, they won't bother.
+
+5. Sub-2-second load. Every extra second costs around 7% of conversions. Optimise images, lazy-load below the fold, self-host fonts, run Lighthouse weekly.
+
+Get these right and your landing page works.
+
+If you want one that does all 5 from day one, we build them in 6 days at Fast Launch.
+
+🔗 fastlaunchmvp.com
+
+#WebDevelopment #WebDesign #ConversionOptimisation #LandingPage #StartupTips #ProductMarketing #UIUX #WebDeveloper #FreelanceWebDeveloper #CustomWebsites #SaaS #BuildInPublic #StartupJourney #MVP #WebPerformance #FrontendDeveloper #NextJS #FastLaunch
