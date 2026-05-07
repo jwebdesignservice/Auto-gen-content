@@ -172,6 +172,55 @@ The original creative spec (themes, content types, type scale, hard rules, slide
 
 ---
 
+## Screenshot Capture — Always Use `screenshot.js` for Client Sites
+
+Case study campaigns require real screenshots of the client site. **Never** generate placeholder boxes or describe the product from the URL alone — capture the actual page.
+
+The repo ships a working headless-Chromium screenshot util at `screenshot.js`:
+
+```bash
+node screenshot.js <url> <out-path.png> [--width=1280] [--height=1800] [--full] [--wait=3000]
+```
+
+- Bundles Chromium via `@sparticuz/chromium` (binary inside the npm tarball, no separate download needed — works in network-restricted sandboxes).
+- Drives it with `puppeteer-core`. Ignores TLS errors so sandbox MITM proxies don't break it.
+- Use `--full` for full-page scrolling captures, omit for viewport-only hero shots.
+
+**Standard capture set per case study campaign:**
+
+```bash
+mkdir -p campaigns/<slug>/references
+node screenshot.js <url>          campaigns/<slug>/references/landing.png        --width=1280 --height=1800 --full --wait=3000
+node screenshot.js <url>          campaigns/<slug>/references/landing-hero.png   --width=1280 --height=900  --wait=3000
+node screenshot.js <url>/app      campaigns/<slug>/references/app.png            --width=1280 --height=1800 --full --wait=3500
+node screenshot.js <url>/app      campaigns/<slug>/references/app-hero.png       --width=1280 --height=900  --wait=3500
+```
+
+After capture, **always Read each PNG to verify** it shows the actual product, not a proxy block page. If a screenshot shows `Host not in allowlist` (or any other error page rendered as content), the sandbox allowlist is missing that host — see below.
+
+---
+
+## Sandbox Allowlist — Required Hosts for Full Automation
+
+This environment runs an outbound proxy (`CLAUDE_CODE_PROXY_RESOLVES_HOSTS=true`) that drops requests to non-allowlisted hosts and serves a "Host not in allowlist" page. **No code workaround exists from inside the sandbox** — even a real headless browser hits the same proxy. The allowlist must be configured in the harness that spawns these sessions.
+
+For the Fast Launch pipeline to run end-to-end, the allowlist needs:
+
+| Host                              | Used for                                          |
+|-----------------------------------|---------------------------------------------------|
+| Arbitrary outbound HTTPS, or      | Capturing client-site screenshots (per-campaign — domain unknown until briefed) |
+| `*.vercel.app`                    | Most client demos / portfolios                    |
+| `files.catbox.moe`, `catbox.moe`  | TikTok PNG delivery (canonical per Hard Rule #1)  |
+| `api.linkedin.com`                | LinkedIn auto-posting (`posting/post-linkedin.js`) |
+| `graph.facebook.com`              | Instagram auto-posting (`posting/post-instagram.js`) |
+| `cdn.jsdelivr.net`                | Fontsource font downloads (only needed for first-time font setup; fonts are vendored to `fonts/` after that) |
+
+**Already allowlisted (verified):** `registry.npmjs.org`, `github.com`, `pypi.org`, `files.pythonhosted.org`.
+
+If a session can't reach a host it needs, do not invent workarounds or ship placeholder content — surface the missing host to Jack so he can update the allowlist.
+
+---
+
 ## Posting Workflow — Claude Runs The Command, Jack Stays in Discord
 
 Jack does not run terminal commands himself. When a campaign is approved and ready to publish, the workflow is:
