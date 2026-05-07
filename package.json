@@ -10,9 +10,12 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@sparticuz/chromium": "^148.0.0",
+    "@sparticuz/chromium-min": "^148.0.0",
     "canvas": "^3.2.3",
     "dotenv": "^17.4.2",
     "pdfjs-dist": "^5.7.284",
-    "playwright": "^1.59.1"
+    "playwright": "^1.59.1",
+    "puppeteer-core": "^24.43.0"
   }
 }
