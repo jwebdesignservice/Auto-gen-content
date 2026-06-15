@@ -1,0 +1,15 @@
+name: Sable
+slug: sable
+industry: restaurant / fine-dining / hospitality
+audience: fine-dining guests
+style: dark, burgundy, editorial, premium, food-photography
+year: 2026
+key_features:
+  - moody-hero
+  - editorial-storytelling
+  - chef-feature
+  - reservation-cta
+hero_color: '#3A0F1A'
+notes: Fine-dining restaurant. "A quiet kind of luxury." Built in Lovable.
+files:
+  full.png: full-page screenshot
