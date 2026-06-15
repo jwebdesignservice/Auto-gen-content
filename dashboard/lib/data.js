@@ -44,8 +44,8 @@ export const videos = [
     platforms: ['TikTok', 'Instagram', 'LinkedIn'],
     status: 'Posted',
     thumb: '/mockups/solax-energy.jpg',
-    metrics: { plays: 4100, likes: 122, saves: 55, comments: 4 },
-    note: 'First portfolio drop. Solid baseline.',
+    metrics: { plays: null, likes: null, saves: null, comments: null },
+    note: 'First portfolio drop.',
   },
   {
     id: 3,
@@ -63,8 +63,8 @@ export const videos = [
     platforms: ['TikTok', 'Instagram', 'LinkedIn'],
     status: 'Posted',
     thumb: '/mockups/bonatica.jpg',
-    metrics: { plays: 320000, likes: 9800, saves: 2100, comments: 142 },
-    note: 'TikTok winner (320K). Teardown / reveal format works.',
+    metrics: { plays: null, likes: null, saves: null, comments: null },
+    note: 'Teardown / reveal format. (Bonatica is flagged as a TikTok winner in the catalogue — add real numbers when handy.)',
   },
   {
     id: 4,
@@ -82,8 +82,8 @@ export const videos = [
     platforms: ['TikTok', 'Instagram', 'LinkedIn'],
     status: 'Posted',
     thumb: '/mockups/clausekit.jpg',
-    metrics: { plays: 6400, likes: 210, saves: 71, comments: 9 },
-    note: 'Annotated screenshots. Steady.',
+    metrics: { plays: null, likes: null, saves: null, comments: null },
+    note: 'Annotated screenshots.',
   },
 ];
 
@@ -120,13 +120,17 @@ export const pipeline = [
 
 // Derived helpers
 const posted = videos.filter(v => v.status === 'Posted');
+const withPlays = posted.filter(v => v.metrics.plays != null);
 export const stats = {
   totalVideos: videos.length,
   posted: posted.length,
   platforms: 3,
   librarySize: library.length,
-  topPerformer: posted.slice().sort((a, b) => (b.metrics.plays || 0) - (a.metrics.plays || 0))[0],
-  totalPlays: posted.reduce((s, v) => s + (v.metrics.plays || 0), 0),
+  hasMetrics: withPlays.length > 0,
+  topPerformer: withPlays.length
+    ? withPlays.slice().sort((a, b) => (b.metrics.plays || 0) - (a.metrics.plays || 0))[0]
+    : null,
+  totalPlays: withPlays.reduce((s, v) => s + (v.metrics.plays || 0), 0),
 };
 
 export function fmt(n) {

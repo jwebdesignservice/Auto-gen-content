@@ -5,7 +5,9 @@ import { stats, fmt } from '../lib/data';
 const TILES = [
   { k: 'Videos built', v: stats.totalVideos, meta: `${stats.posted} posted · ${stats.totalVideos - stats.posted} ready` },
   { k: 'Live on', v: stats.platforms, suffix: 'channels', meta: 'TikTok · Instagram · LinkedIn' },
-  { k: 'Best performer', v: fmt(stats.topPerformer.metrics.plays), suffix: 'plays', meta: stats.topPerformer.title },
+  stats.topPerformer
+    ? { k: 'Best performer', v: fmt(stats.topPerformer.metrics.plays), suffix: 'plays', meta: stats.topPerformer.title }
+    : { k: 'Best performer', v: '—', meta: 'Awaiting analytics' },
   { k: 'Work library', v: stats.librarySize, suffix: 'sites', meta: 'Ready to feature' },
 ];
 
