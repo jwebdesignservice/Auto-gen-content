@@ -2,6 +2,10 @@
 
 This file is loaded automatically as context whenever I'm working in this project. It captures the operational rules I must follow on every post. The full creative brief lives in the original spec (sent in Discord — see "Fast Launch — Daily Social Creative System"); this file is the **operational checklist on top of it**.
 
+> **System status:** as of 2026-05-08 the daily pipeline is built. See `SYSTEM-SPEC.md` for the master spec and `IMPLEMENTATION-LOG.md` for what's built vs deferred. Every day-to-day operation (research, idea synthesis, render, stage, notify, post, close) goes through `scripts/`. Run `npm run check-env` to validate keys.
+
+> **Approval rule (hard):** Posting scripts (`post-linkedin.js`, `post-instagram.js`, `post-from-stage.js`) NEVER fire without an explicit fresh "post it" from Jack in Discord. Earlier approval does NOT carry across revisions. See `~/.claude/projects/C--Users-Jack/memory/feedback_post_only_with_approval.md`.
+
 ---
 
 ## Hard Rule: TikTok PNGs Must Be Phone-Downloadable via Direct catbox URLs
@@ -166,7 +170,59 @@ Slug is kebab-case, named after the project (e.g. `aramas`, `motor-parts-allai`,
 
 ---
 
-## Source of Truth
+## Hard Rule: Multi-Website Showcase — Design Spec (locked 2026-06-15)
+
+Whenever a campaign showcases **multiple websites** (work showcase / portfolio),
+build it to this spec. Reference build: `campaigns/2026-06-11-six-more-sites/`
+(`make-tiktok.js` + `make-square.js`). Hook references: `brand/hook-references/`.
+This is the result of a full iteration with Jack — do NOT relitigate these:
+
+**Background (every slide, for consistency):** one shared warm gradient —
+`#FFFBF7 → #FCF1E7 → #FBE6D5` diagonal — plus two very subtle (~0.10 alpha)
+orange glow blobs for depth. Same on hook, project slides, and CTA. See
+`drawGradientBg()`. No per-project coloured/dark backdrops.
+
+**Mockups:** BORDERLESS — rounded corners + soft drop shadow, NO white frame.
+Always sized to **bleed off the bottom edge** (the bottom of the site is never
+visible). Use a dynamic crop so every site bleeds regardless of its width.
+**Inset with comfortable side padding — never edge-to-edge** and not dominating:
+in the reference build, hook mockups sit ~90px off the L/R edges (TikTok) and the
+single project mockup is ~720/1080 wide (TikTok) / ~460/1080 (square), i.e. wide
+margins. Keep them on the smaller side.
+
+**Spacing & layout (required):**
+- HOOK: keep headline, subhead and mockups TIGHT together — no big vertical gaps.
+  Leave only a *small* gap between the subhead and the top of the mockups.
+- PROJECT slides: the heading sits near the TOP (no empty space above it) and the
+  mockup begins just under it and fills downward. Do NOT vertically-centre project
+  content — push everything up so the top isn't empty.
+- Every image is INSET from the L/R edges (comfortable padding, never edge-to-edge)
+  AND runs OFF the bottom edge (bottom never visible).
+
+**Slide 1 (hook):**
+- CENTERED headline, two lines: black "I Design & Build" + the key word
+  "**Websites**" on its own line in green (`#2EA84F`). Accent can vary per video;
+  green is the current default.
+- Centred dark subhead "Here's some of my work..." (Space Grotesk Medium). **No
+  arrow doodle.**
+- Exactly **2** case-study mockups, overlapping (light hero front-left, darker
+  one behind-right), bleeding off the bottom. Tight spacing — headline, subhead
+  and mockups sit close together; small gap above the mockups.
+
+**Project slides (2…n):** HEADING ONLY — the project name + a small orange rule.
+NO eyebrow, NO tagline, no body text. Heading sits near the TOP; the mockup fills
+from just under it and bleeds off the bottom. Light throughout.
+
+**No CTA closer slide** (Jack dropped it 2026-06-15). Deck = hook + one slide per
+project, nothing after. A `slideCTA()` remains in the code but is not called.
+
+**Chrome:** TikTok = chrome-off; IG/LinkedIn = full chrome (orange topbar, logo
+top-left, URL top-right).
+
+**Rejected along the way (do NOT bring back):** faded scattered-collage hook;
+flat single-row of full pages; thick/white image frames; per-project coloured or
+dark backdrops; the hand-drawn arrow doodle; eyebrow + tagline on project slides;
+edge-to-edge / oversized mockups; the CTA closer slide.
 
 The original creative spec (themes, content types, type scale, hard rules, slide chrome) is the authoritative brief. This file only adds **operational** rules — folder layout, export discipline, and the run-through-every-time checklist.
 
