@@ -20,7 +20,7 @@ export const videos = [
     accentHex: '#2EA84F',
     background: 'Warm gradient',
     cover: ['Auréa', 'Ovulan'],
-    projects: ['Auréa', 'Ovulan', 'KOL Vault', 'Snow Outdoor Digs', 'MOT Services', 'Memory Market'],
+    projects: ['Auréa', 'Ovulan', 'KOL Vault', 'Snow Outdoor Digs', 'Primrose Evercare', 'Memory Market'],
     slides: 7,
     platforms: ['TikTok', 'Instagram', 'LinkedIn'],
     status: 'Ready to post',
