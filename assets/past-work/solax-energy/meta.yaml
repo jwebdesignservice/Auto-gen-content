@@ -1,0 +1,13 @@
+name: Solax Energy
+slug: solax-energy
+industry: clean-energy / solar
+style: editorial, white, bold-type, photo-led
+year: 2025
+key_features:
+  - hero-with-headline
+  - stats-strip
+  - solutions-grid
+hero_color: ''
+notes: Built in Webflow. Featured as a mockup in Jack's 238K-play "6 essential skills" TikTok winner.
+files:
+  full.png: full-page screenshot

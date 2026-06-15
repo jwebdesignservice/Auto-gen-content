@@ -1,0 +1,14 @@
+name: Aramas Investments
+slug: aramas
+industry: real-estate / property-investment
+style: dark, premium, type-led
+year: 2026
+key_features:
+  - hero
+  - portfolio
+  - timeline
+hero_color: ''
+notes: Reference build for the Fast Launch design system. Featured in the original 7-slide Aramas case study (campaigns/aramas-launch).
+files:
+  full.png: full-page screenshot
+  full-edit.png: edited / Webflow-design-mode capture

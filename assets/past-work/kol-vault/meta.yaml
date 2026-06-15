@@ -1,0 +1,11 @@
+name: KOL Vault
+slug: kol-vault
+industry: SaaS / influencer-marketing
+style: tech-forward, dark, data-led
+year: 2026
+key_features:
+  - dashboard
+hero_color: ''
+notes: Vercel-deployed. Influencer / KOL data tooling.
+files:
+  full.png: full-page screenshot

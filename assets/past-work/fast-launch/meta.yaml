@@ -1,0 +1,14 @@
+name: Fast Launch
+slug: fast-launch
+industry: web-development / agency
+audience: Jack's own brand
+style: orange, bold, agency
+year: 2026
+key_features:
+  - hero
+  - service-pricing
+  - case-study-grid
+hero_color: '#F26B1A'
+notes: Jack's own brand site. Use sparingly in content (it's the seller, not the work).
+files:
+  full.png: full-page screenshot of fastlaunchmvp.com

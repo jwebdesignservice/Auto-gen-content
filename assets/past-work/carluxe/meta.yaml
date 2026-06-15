@@ -1,0 +1,15 @@
+name: Car Luxe
+slug: carluxe
+industry: automotive / car-detailing
+audience: luxury-car owners
+style: dark, gold-accent, premium, product-led
+year: 2025
+key_features:
+  - hero-with-supercar-photography
+  - service-tiers
+  - pricing-tiers
+  - cta-prominent
+hero_color: '#0F0F0F'
+notes: Luxury car detailing service. Black + gold premium aesthetic.
+files:
+  full.png: full-page screenshot

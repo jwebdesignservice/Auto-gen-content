@@ -1,0 +1,13 @@
+name: Snow Outdoor Digs
+slug: snow-outdoor-digs
+industry: facilities / snow-removal-services
+style: bold, dark, orange-accent, work-photography
+year: 2025
+key_features:
+  - hero-with-action-photography
+  - cta-prominent
+hero_color: '#F26B1A'
+notes: Built in Webflow. Industrial / commercial services.
+files:
+  full.png: full-page screenshot
+  hero.png: hero crop with snow-truck imagery

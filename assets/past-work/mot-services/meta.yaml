@@ -1,0 +1,13 @@
+name: MOT Services
+slug: mot-services
+industry: automotive / vehicle-services
+audience: UK car owners
+style: dark, masculine, orange-accent, garage-photography
+year: 2025
+key_features:
+  - hero-with-workshop-photography
+  - service-explanation
+hero_color: '#F26B1A'
+notes: UK MOT testing / vehicle servicing. 30+ years operating.
+files:
+  hero.png: hero crop ("Reliable MOT Testing & Vehicle Safety Services")

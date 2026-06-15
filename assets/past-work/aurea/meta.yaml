@@ -1,0 +1,17 @@
+name: Auréa
+slug: aurea
+industry: skincare / beauty
+audience: clean-beauty buyers
+style: minimal, sage-green, natural, calm
+year: 2025
+key_features:
+  - hero-with-bottle-photography
+  - benefits-grid
+  - product-collection-with-icons
+  - testimonial-carousel
+hero_color: '#DDE5D2'
+notes: Sage-green clean-beauty palette. Counter to Bonatica's pink/warm style.
+files:
+  full.png: full-page screenshot
+  hero.webp: hero crop ("Feed Your Skin, Find Your Glow.")
+  section-benefits.png: benefits + product collection

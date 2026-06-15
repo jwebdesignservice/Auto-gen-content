@@ -1,0 +1,15 @@
+name: Athlytex
+slug: athlytex
+industry: fitness / gym
+audience: gym buyers
+style: bold, red-accent, action-photography
+year: 2025
+key_features:
+  - hero-with-athlete-photography
+  - membership-tiers
+  - testimonials
+  - cta-banner
+hero_color: '#E63946'
+notes: Premium gym membership site.
+files:
+  mockup.png: full-page mockup

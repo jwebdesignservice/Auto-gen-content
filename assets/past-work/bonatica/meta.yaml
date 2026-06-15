@@ -1,0 +1,19 @@
+name: Bonatica
+slug: bonatica
+industry: skincare / beauty
+audience: skincare buyers (broad)
+style: warm, clean, photo-led, soft-pink accent
+year: 2025
+key_features:
+  - hero-with-product-photography
+  - testimonial-cards
+  - newsletter-signup
+  - product-grid-with-ratings
+hero_color: '#F4DDD7'
+notes: Featured in 320K-play TikTok winner ("Hola me for websites" skincare reveal). Multiple section crops available.
+files:
+  full.png: full-page screenshot
+  hero.png: hero crop only
+  section-why-skincare.png: "Why our skincare is good for you" section
+  section-best-sellers.png: best sellers grid + Clean Formulas headline
+  section-testimonials.png: customer reviews + newsletter signup
