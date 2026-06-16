@@ -38,14 +38,30 @@ export function refreshAccessToken(refreshToken) {
   return tokenRequest({ grant_type: 'refresh_token', refresh_token: refreshToken });
 }
 
-// Pull the authed user's videos with their stats.
-export async function listVideos(accessToken) {
-  const fields = 'id,title,view_count,like_count,comment_count,share_count,create_time';
-  const res = await fetch(`https://open.tiktokapis.com/v2/video/list/?fields=${fields}`, {
+const FIELDS = 'id,title,view_count,like_count,comment_count,share_count,create_time,cover_image_url,share_url';
+
+// One page of the authed user's videos.
+export async function listVideos(accessToken, cursor) {
+  const body = { max_count: 20 };
+  if (cursor) body.cursor = cursor;
+  const res = await fetch(`https://open.tiktokapis.com/v2/video/list/?fields=${FIELDS}`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ max_count: 20 }),
+    body: JSON.stringify(body),
     cache: 'no-store',
   });
   return res.json();
+}
+
+// Paginate through ALL of the user's videos (capped for safety).
+export async function listAllVideos(accessToken, maxPages = 30) {
+  let all = [], cursor, hasMore = true, pages = 0;
+  while (hasMore && pages < maxPages) {
+    const d = await listVideos(accessToken, cursor);
+    all = all.concat(d?.data?.videos || []);
+    cursor = d?.data?.cursor;
+    hasMore = d?.data?.has_more;
+    pages++;
+  }
+  return all;
 }
