@@ -2,7 +2,7 @@ site: Sable
 slug: sable
 type: single-site breakdown
 industry: restaurant / fine-dining
-brand_color: '#3A0F1A'   # deep burgundy (matches the site)
+brand_color: '#6E1228'   # red-burgundy — used for the slide-number graphic
 accent: '#C8A24B'        # warm gold
 sections:
   - file: 01-hero.png
