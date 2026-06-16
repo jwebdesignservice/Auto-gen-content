@@ -23,7 +23,7 @@ export const videos = [
     projects: ['Auréa', 'Ovulan', 'KOL Vault', 'Snow Outdoor Digs', 'Primrose Evercare', 'Memory Market'],
     slides: 7,
     platforms: ['TikTok', 'Instagram', 'LinkedIn'],
-    status: 'Ready to post',
+    status: 'Posted',
     thumb: '/thumbnails/six-more-sites-hook.jpg',
     metrics: { plays: null, likes: null, saves: null, comments: null },
     note: 'First build on the locked showcase spec. Next test: orange accent vs green; a dark hero on the cover.',

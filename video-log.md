@@ -14,7 +14,7 @@ clearly out-performs, note the takeaway in "Learnings / next test".
 
 | # | Date | Slug | Type | Hook heading | Accent | Background | Cover images | Projects featured | Slides | Platforms | Plays | Likes | Saves | Comments | Learnings / next test |
 |---|------|------|------|--------------|--------|-----------|--------------|-------------------|--------|-----------|-------|-------|-------|----------|------------------------|
-| 1 | 2026-06-15 | 2026-06-11-six-more-sites | work-showcase | "I Design & Build / Websites" | green `#2EA84F` | warm gradient (cream→peach) | Auréa + Ovulan | Auréa, Ovulan, KOL Vault, Snow Outdoor Digs, MOT Services, Memory Market | 7 | TT/IG/LI | _tbd_ | _tbd_ | _tbd_ | _tbd_ | First build on the locked showcase spec. Next test ideas: try the **orange** accent vs green; a different cover pair (e.g. a dark hero); alternate hook copy ("Building websites is easy…" / "We build websites"). |
+| 1 | 2026-06-16 | 2026-06-11-six-more-sites | work-showcase | "I Design & Build / Websites" | green `#2EA84F` | warm gradient (cream→peach) | Auréa + Ovulan | Auréa, Ovulan, KOL Vault, Snow Outdoor Digs, Primrose Evercare, Memory Market | 7 | LI posted (urn:li:share:7472654553557929984) · IG/TT pending | _tbd_ | _tbd_ | _tbd_ | _tbd_ | Posted to LinkedIn 2026-06-16. First build on the locked showcase spec. Next test ideas: try **orange** accent vs green; a different cover pair (dark hero); alternate hook copy. |
 
 ## Variables we can rotate to test
 
