@@ -224,6 +224,15 @@ flat single-row of full pages; thick/white image frames; per-project coloured or
 dark backdrops; the hand-drawn arrow doodle; eyebrow + tagline on project slides;
 edge-to-edge / oversized mockups; the CTA closer slide.
 
+## Hard Rule: Single-Site Breakdown video
+
+Another locked format (section-by-section teardown of ONE site). Full spec +
+reusable template in **`templates/breakdown/README.md`**; section images live in
+`assets/breakdowns/<site-slug>/`. Summary: light bg, each slide = the full section
+image + a small slide-number ring (in the site's brand colour) ONLY, slide 1
+centred on the slide / slides 2+ below the number, no other text. New one = drop
+images, set `brand_color`, run the template.
+
 The original creative spec (themes, content types, type scale, hard rules, slide chrome) is the authoritative brief. This file only adds **operational** rules — folder layout, export discipline, and the run-through-every-time checklist.
 
 ---
