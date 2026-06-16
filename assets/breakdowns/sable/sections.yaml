@@ -1,0 +1,22 @@
+site: Sable
+slug: sable
+type: single-site breakdown
+industry: restaurant / fine-dining
+brand_color: '#3A0F1A'   # deep burgundy (matches the site)
+accent: '#C8A24B'        # warm gold
+sections:
+  - file: 01-hero.png
+    label: The hero
+    note: '"A quiet kind of luxury" — candle-lit hero, instant tone.'
+  - file: 02-menu-craft.png
+    label: The craft
+    note: 'Cooked over fire, 600 bottles, a 12-course tasting written each morning.'
+  - file: 03-chef-room.png
+    label: The chef & the room
+    note: '"The room is the recipe" + a frame-by-frame photo gallery.'
+  - file: 04-proof-pricing.png
+    label: Proof & pricing
+    note: 'Testimonials + three clear booking tiers + "your table is waiting".'
+  - file: 05-faq-footer.png
+    label: The close
+    note: 'FAQ that answers objections + "reserve a seat" sign-off.'
