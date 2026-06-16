@@ -12,7 +12,7 @@ const SITE = 'sable';
 const REFS = path.join(__dirname, '..', '..', 'assets', 'breakdowns', SITE);
 const OUT_IG = path.join(__dirname, 'exports', 'instagram');
 const OUT_LI = path.join(__dirname, 'exports', 'linkedin');
-const ORANGE = BRAND_TOKENS.ORANGE;
+const SITE_COLOR = '#6E1228';   // red-burgundy — matches the Sable site (slide-number colour)
 
 const SECTIONS = ['01-hero.png', '02-menu-craft.png', '03-chef-room.png', '04-proof-pricing.png', '05-faq-footer.png'];
 
@@ -24,9 +24,9 @@ function lightBg(ctx) {
 function numberBadge(ctx, n, total, cy = 110) {
   const cx = W / 2, r = 40;
   ctx.save();
-  ctx.strokeStyle = ORANGE; ctx.lineWidth = 2.5;
+  ctx.strokeStyle = SITE_COLOR; ctx.lineWidth = 2.5;
   ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();
-  ctx.fillStyle = ORANGE; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillStyle = SITE_COLOR; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
   ctx.font = 'italic 40px "Instrument Serif Italic"';
   ctx.fillText(String(n).padStart(2, '0'), cx, cy + 2);
   ctx.fillStyle = 'rgba(27,26,24,0.45)'; ctx.textBaseline = 'alphabetic';
@@ -35,15 +35,17 @@ function numberBadge(ctx, n, total, cy = 110) {
   ctx.restore();
 }
 function sectionImage(ctx, img) {
-  const topB = 200, botB = H - 60, fw = 620, x = (W - fw) / 2, R = 13;
-  const h = img.height * (fw / img.width);
-  let y, drawH = h;
-  if (h <= botB - topB) y = topB + (botB - topB - h) / 2; else y = topB;
+  // Full image (no crop), fit within the area and centred exactly.
+  const availTop = 190, availBot = H - 50, maxW = 640, R = 13;
+  const maxH = availBot - availTop;
+  const scale = Math.min(maxW / img.width, maxH / img.height);
+  const w = img.width * scale, h = img.height * scale;
+  const x = (W - w) / 2, y = availTop + (maxH - h) / 2;
   ctx.save(); ctx.shadowColor = 'rgba(27,26,24,0.20)'; ctx.shadowBlur = 28; ctx.shadowOffsetY = 12;
-  ctx.fillStyle = '#000'; roundRect(ctx, x, y, fw, drawH, R); ctx.fill(); ctx.restore();
-  ctx.save(); roundRect(ctx, x, y, fw, drawH, R); ctx.clip();
-  ctx.drawImage(img, 0, 0, img.width, img.height, x, y, fw, drawH); ctx.restore();
-  ctx.save(); ctx.strokeStyle = 'rgba(27,26,24,0.12)'; ctx.lineWidth = 1.25; roundRect(ctx, x, y, fw, drawH, R); ctx.stroke(); ctx.restore();
+  ctx.fillStyle = '#000'; roundRect(ctx, x, y, w, h, R); ctx.fill(); ctx.restore();
+  ctx.save(); roundRect(ctx, x, y, w, h, R); ctx.clip();
+  ctx.drawImage(img, 0, 0, img.width, img.height, x, y, w, h); ctx.restore();
+  ctx.save(); ctx.strokeStyle = 'rgba(27,26,24,0.12)'; ctx.lineWidth = 1.25; roundRect(ctx, x, y, w, h, R); ctx.stroke(); ctx.restore();
 }
 function save(state, name) { saveCanvas(state, path.join(OUT_IG, name)); saveCanvas(state, path.join(OUT_LI, name)); console.log('  saved (IG+LI):', name); }
 

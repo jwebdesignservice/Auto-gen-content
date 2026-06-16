@@ -24,10 +24,12 @@ the breakdown carousel. New concepts get a new `<site-slug>/` folder here.
 - **Light background**, clean and minimal (soft cream gradient). Not site-coloured.
 - **Each slide shows ONLY: the section image + a small slide-number graphic at the
   top.** No headings, labels, notes, hook copy or CTA text on the slides.
-- **Number graphic:** a small orange ring with the slide number inside (Instrument
-  Serif italic) and a tiny `/ NN` total beneath. Kept relatively small, top-centre.
-- Section image sits in a subtle card (soft shadow + hairline) so it reads on the
-  light background; short/landscape sections centre, tall sections bleed off the bottom.
+- **Number graphic:** a small ring with the slide number inside (Instrument Serif
+  italic) + a tiny `/ NN` total beneath. Relatively small, top-centre. **Ring/number
+  colour matches the site's brand colour** (e.g. Sable = red-burgundy `#6E1228`).
+- **Show the FULL image** — the whole section must be visible, no cropping or
+  bleeding. Fit it within the area and **centre it vertically (and horizontally)
+  exactly.** Subtle card (soft shadow + hairline) so it reads on the light bg.
 - One slide per section, numbered in order. No separate hook/CTA slides (the CTA
   lives in the caption).
 

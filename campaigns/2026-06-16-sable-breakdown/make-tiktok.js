@@ -13,7 +13,7 @@ const W = 1080, H = 1920;
 const SITE = 'sable';
 const REFS = path.join(__dirname, '..', '..', 'assets', 'breakdowns', SITE);
 const OUT = path.join(__dirname, 'exports', 'tiktok');
-const ORANGE = BRAND_TOKENS.ORANGE, INK = '#1B1A18';
+const SITE_COLOR = '#6E1228';   // red-burgundy — matches the Sable site (slide-number colour)
 
 const SECTIONS = ['01-hero.png', '02-menu-craft.png', '03-chef-room.png', '04-proof-pricing.png', '05-faq-footer.png'];
 
@@ -27,9 +27,9 @@ function lightBg(ctx) {
 function numberBadge(ctx, n, total, cy = 165) {
   const cx = W / 2, r = 50;
   ctx.save();
-  ctx.strokeStyle = ORANGE; ctx.lineWidth = 3;
+  ctx.strokeStyle = SITE_COLOR; ctx.lineWidth = 3;
   ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();
-  ctx.fillStyle = ORANGE; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillStyle = SITE_COLOR; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
   ctx.font = 'italic 50px "Instrument Serif Italic"';
   ctx.fillText(String(n).padStart(2, '0'), cx, cy + 3);
   // tiny total under the ring
@@ -40,18 +40,17 @@ function numberBadge(ctx, n, total, cy = 165) {
 }
 
 function sectionImage(ctx, img) {
-  const topB = 280, botB = H - 90;          // area between badge and bottom
-  const fw = 920, x = (W - fw) / 2, R = 16;
-  const h = img.height * (fw / img.width);
-  let y, drawH = h;
-  if (h <= botB - topB) { y = topB + (botB - topB - h) / 2; }   // short/landscape → centre
-  else { y = topB; drawH = h; }                                  // tall → top-align + bleed
-  // shadow + image + hairline so it reads on the light bg
+  // Show the FULL image (no crop/bleed), fit within the area and centred exactly.
+  const availTop = 270, availBot = H - 70, maxW = 940, R = 16;
+  const maxH = availBot - availTop;
+  const scale = Math.min(maxW / img.width, maxH / img.height);
+  const w = img.width * scale, h = img.height * scale;
+  const x = (W - w) / 2, y = availTop + (maxH - h) / 2;
   ctx.save(); ctx.shadowColor = 'rgba(27,26,24,0.20)'; ctx.shadowBlur = 38; ctx.shadowOffsetY = 16;
-  ctx.fillStyle = '#000'; roundRect(ctx, x, y, fw, drawH, R); ctx.fill(); ctx.restore();
-  ctx.save(); roundRect(ctx, x, y, fw, drawH, R); ctx.clip();
-  ctx.drawImage(img, 0, 0, img.width, img.height, x, y, fw, drawH); ctx.restore();
-  ctx.save(); ctx.strokeStyle = 'rgba(27,26,24,0.12)'; ctx.lineWidth = 1.5; roundRect(ctx, x, y, fw, drawH, R); ctx.stroke(); ctx.restore();
+  ctx.fillStyle = '#000'; roundRect(ctx, x, y, w, h, R); ctx.fill(); ctx.restore();
+  ctx.save(); roundRect(ctx, x, y, w, h, R); ctx.clip();
+  ctx.drawImage(img, 0, 0, img.width, img.height, x, y, w, h); ctx.restore();
+  ctx.save(); ctx.strokeStyle = 'rgba(27,26,24,0.12)'; ctx.lineWidth = 1.5; roundRect(ctx, x, y, w, h, R); ctx.stroke(); ctx.restore();
 }
 
 function save(state, name) { saveCanvas(state, path.join(OUT, name)); console.log('  saved:', name); }
