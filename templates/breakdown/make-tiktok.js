@@ -21,6 +21,9 @@ const W = 1080, H = 1920;
 const slug = process.argv[2];
 if (!slug) { console.error('usage: node make-tiktok.js <site-slug> [campaignFolder]'); process.exit(1); }
 const campaign = process.argv[3] || `${slug}-breakdown`;
+// Optional: when a full-bleed cover is slide 1, pass startNum=2 + total to renumber.
+const startNum = parseInt(process.argv[4], 10) || 1;
+const totalArg = parseInt(process.argv[5], 10);
 const SITE_DIR = path.join(__dirname, '..', '..', 'assets', 'breakdowns', slug);
 const OUT = path.join(__dirname, '..', '..', 'campaigns', campaign, 'exports', 'tiktok');
 
@@ -51,7 +54,7 @@ function numberBadge(ctx, n, total, cy = 165) {
   ctx.restore();
 }
 function sectionImage(ctx, img, isFirst) {
-  const availTop = 270, availBot = H - 70, maxW = 940, R = 16;
+  const availTop = 335, availBot = H - 70, maxW = 940, R = 16;
   const maxH = availBot - availTop;
   const scale = Math.min(maxW / img.width, maxH / img.height) * 0.9;
   const w = img.width * scale, h = img.height * scale;
@@ -70,11 +73,13 @@ async function run() {
   fs.mkdirSync(OUT, { recursive: true });
   fs.readdirSync(OUT).filter((f) => f.endsWith('.png')).forEach((f) => fs.unlinkSync(path.join(OUT, f)));
   for (let i = 0; i < SECTIONS.length; i++) {
+    const num = startNum + i;
+    const total = totalArg || SECTIONS.length;
     const state = createBaseCanvas(W, H, '#FFFCF8'); const { ctx } = state;
-    lightBg(ctx); numberBadge(ctx, i + 1, SECTIONS.length);
+    lightBg(ctx); numberBadge(ctx, num, total);
     const img = await loadImage(path.join(SITE_DIR, SECTIONS[i]));
-    sectionImage(ctx, img, i === 0);
-    const name = `slide-${i + 1}-${SECTIONS[i].replace('.png', '')}.png`;
+    sectionImage(ctx, img, num === 1);
+    const name = `slide-${num}-${SECTIONS[i].replace('.png', '')}.png`;
     saveCanvas(state, path.join(OUT, name)); console.log('  saved:', name);
   }
   console.log(`\n[${slug}] TikTok breakdown done (colour ${SITE_COLOR}) →`, OUT);

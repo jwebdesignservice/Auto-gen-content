@@ -1,21 +1,13 @@
-Inside a fine-dining site we built: Sable.
+This website made my client £8.5k last month.
 
-We broke this one down section by section, because a great restaurant site isn't decoration, every part is doing a job:
+Sable is a fine-dining restaurant site we built, and it's quietly turning browsers into bookings. Here's the whole thing, section by section, and why each part earns its place.
 
-The hero sets the tone in a single screen. Candle-lit, "a quiet kind of luxury."
+The hero sets the tone in one screen. The craft section sells the experience before the price does. Proof and clear booking tiers remove the friction. The FAQ kills the objections, then one simple call: reserve a seat.
 
-The craft. Cooked over fire, 600 bottles, a 12-course tasting written each morning. Story sells the experience before the price does.
+Every section has a job. That's the difference between a website and a booking machine.
 
-The chef and the room, with a frame-by-frame gallery so you can almost smell it.
-
-Proof, then three clear booking tiers. No guessing what it costs or how to book.
-
-FAQs that quietly kill every objection, then one simple call: "reserve a seat."
-
-Every section earns its place. That's the difference between a website and a booking machine.
-
-Want one like this? We build custom sites in 6 days at Fast Launch.
+Want one that works this hard for your business? We build custom sites in 6 days at Fast Launch.
 
 🔗 fastlaunchmvp.com
 
-#WebDesign #WebDevelopment #RestaurantMarketing #Hospitality #UIUX #BrandIdentity #CustomWebsite #ConversionOptimisation #SmallBusiness #FastLaunch #WebDeveloper #FineDining #WebStudio #ResponsiveDesign #DesignThatConverts
+#WebDesign #WebDevelopment #RestaurantMarketing #Hospitality #UIUX #ConversionOptimisation #CustomWebsite #FineDining #SmallBusiness #FastLaunch #WebDeveloper #BrandIdentity #WebStudio #DesignThatConverts #UKBusiness

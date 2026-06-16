@@ -13,6 +13,8 @@ const W = 1080, H = 1080;
 const slug = process.argv[2];
 if (!slug) { console.error('usage: node make-square.js <site-slug> [campaignFolder]'); process.exit(1); }
 const campaign = process.argv[3] || `${slug}-breakdown`;
+const startNum = parseInt(process.argv[4], 10) || 1;   // cover-first decks pass 2
+const totalArg = parseInt(process.argv[5], 10);
 const SITE_DIR = path.join(__dirname, '..', '..', 'assets', 'breakdowns', slug);
 const OUT_IG = path.join(__dirname, '..', '..', 'campaigns', campaign, 'exports', 'instagram');
 const OUT_LI = path.join(__dirname, '..', '..', 'campaigns', campaign, 'exports', 'linkedin');
@@ -44,7 +46,7 @@ function numberBadge(ctx, n, total, cy = 110) {
   ctx.restore();
 }
 function sectionImage(ctx, img, isFirst) {
-  const availTop = 190, availBot = H - 50, maxW = 640, R = 13;
+  const availTop = 240, availBot = H - 50, maxW = 640, R = 13;
   const maxH = availBot - availTop;
   const scale = Math.min(maxW / img.width, maxH / img.height) * 0.9;
   const w = img.width * scale, h = img.height * scale;
@@ -60,11 +62,13 @@ function sectionImage(ctx, img, isFirst) {
 async function run() {
   [OUT_IG, OUT_LI].forEach((d) => { fs.mkdirSync(d, { recursive: true }); fs.readdirSync(d).filter((f) => f.endsWith('.png')).forEach((f) => fs.unlinkSync(path.join(d, f))); });
   for (let i = 0; i < SECTIONS.length; i++) {
+    const num = startNum + i;
+    const total = totalArg || SECTIONS.length;
     const state = createBaseCanvas(W, H, '#FFFCF8'); const { ctx } = state;
-    lightBg(ctx); numberBadge(ctx, i + 1, SECTIONS.length);
+    lightBg(ctx); numberBadge(ctx, num, total);
     const img = await loadImage(path.join(SITE_DIR, SECTIONS[i]));
-    sectionImage(ctx, img, i === 0);
-    const name = `slide-${i + 1}-${SECTIONS[i].replace('.png', '')}.png`;
+    sectionImage(ctx, img, num === 1);
+    const name = `slide-${num}-${SECTIONS[i].replace('.png', '')}.png`;
     saveCanvas(state, path.join(OUT_IG, name)); saveCanvas(state, path.join(OUT_LI, name)); console.log('  saved (IG+LI):', name);
   }
   console.log(`\n[${slug}] square breakdown done (colour ${SITE_COLOR})`);

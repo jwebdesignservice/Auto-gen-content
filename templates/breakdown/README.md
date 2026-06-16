@@ -26,9 +26,16 @@ of requirements for the creative. Don't drift from it. To make a new one you jus
 **Background:** LIGHT, clean, minimal — cream gradient (`#FFFCF8 → #F4EEE4`).
 Never site-coloured.
 
+**Slide 1 is ALWAYS the full-bleed cover** — the whole site (its full-page
+screenshot) in the breakdown style, slimmer width, top-anchored so it bleeds off
+the bottom, with the number ring above it. The section slides then follow,
+**renumbered to start at 02** (total = sections + 1). Render the cover with the
+`make-cover.js` pattern (reads `assets/past-work/<slug>/full.png`); render the
+sections with `make-tiktok/square.js <slug> <campaign> 2 <total>` so they number
+02…N. CTA lives in the caption.
+
 **Per slide — image + number ONLY.** No headings, labels, section notes, hook
-copy or CTA text anywhere on the slides. One slide per section. The hook is the
-hero (slide 1) and the CTA lives in the caption — no dedicated hook/CTA slides.
+copy or CTA text anywhere on the slides. One slide per section.
 
 **The image:**
 - Show the **FULL image** — the whole section visible, never cropped or bled.
