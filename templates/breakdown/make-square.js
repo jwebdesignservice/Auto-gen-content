@@ -30,7 +30,7 @@ function lightBg(ctx) {
   g.addColorStop(0, '#FFFCF8'); g.addColorStop(1, '#F4EEE4');
   ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
 }
-function numberBadge(ctx, n, total, cy = 92) {
+function numberBadge(ctx, n, total, cy = 110) {
   const cx = W / 2, r = 40;
   ctx.save();
   ctx.strokeStyle = SITE_COLOR; ctx.lineWidth = 2.5;
@@ -43,12 +43,13 @@ function numberBadge(ctx, n, total, cy = 92) {
   ctx.fillText(`/ ${String(total).padStart(2, '0')}`, cx, cy + r + 24);
   ctx.restore();
 }
-function sectionImage(ctx, img) {
+function sectionImage(ctx, img, isFirst) {
   const availTop = 190, availBot = H - 50, maxW = 640, R = 13;
   const maxH = availBot - availTop;
   const scale = Math.min(maxW / img.width, maxH / img.height) * 0.9;
   const w = img.width * scale, h = img.height * scale;
-  const x = (W - w) / 2, y = (H - h) / 2;   // centred on the true middle of the slide
+  const x = (W - w) / 2;
+  const y = isFirst ? (H - h) / 2 : availTop + (maxH - h) / 2;
   ctx.save(); ctx.shadowColor = 'rgba(27,26,24,0.20)'; ctx.shadowBlur = 28; ctx.shadowOffsetY = 12;
   ctx.fillStyle = '#000'; roundRect(ctx, x, y, w, h, R); ctx.fill(); ctx.restore();
   ctx.save(); roundRect(ctx, x, y, w, h, R); ctx.clip();
@@ -62,7 +63,7 @@ async function run() {
     const state = createBaseCanvas(W, H, '#FFFCF8'); const { ctx } = state;
     lightBg(ctx); numberBadge(ctx, i + 1, SECTIONS.length);
     const img = await loadImage(path.join(SITE_DIR, SECTIONS[i]));
-    sectionImage(ctx, img);
+    sectionImage(ctx, img, i === 0);
     const name = `slide-${i + 1}-${SECTIONS[i].replace('.png', '')}.png`;
     saveCanvas(state, path.join(OUT_IG, name)); saveCanvas(state, path.join(OUT_LI, name)); console.log('  saved (IG+LI):', name);
   }
