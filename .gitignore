@@ -1,5 +1,8 @@
 .env
 node_modules/
 open-design-ref/
+external/
 campaigns/*/exports/
 banners/*.png
+dist/
+.claude/settings.local.json
