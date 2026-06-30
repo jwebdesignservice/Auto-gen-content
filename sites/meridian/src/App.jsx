@@ -58,7 +58,7 @@ export default function App() {
         // stagger the hero letters via CSS transition-delay (in reading order)
         if (heroSec) {
           heroSec.querySelectorAll('.char').forEach((c, i) => {
-            c.style.transitionDelay = Math.min(i * 0.008, 1.0) + 's'
+            c.style.transitionDelay = Math.min(i * 0.005, 0.65) + 's'
           })
         }
 
